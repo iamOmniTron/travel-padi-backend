@@ -32,7 +32,6 @@ module.exports = {
         console.log(email,password);
         try{
             const user = await db.User.findOne({where:{email}});
-            console.log(user);
             if(!user) return next("Invalid user");
             
             const isPassMatched = isPasswordMatch(password,user.password);
@@ -49,10 +48,11 @@ module.exports = {
     },
     profile: async(req,res,next)=>{
         const {userId} = req;
+        console.log("user id",userId)
         try{
             const user = await db.User.findByPk(userId);
             const {name,phone,email} = user;
-
+            console.log("name",name);
             return res.json({
                 success:true,
                 data:{name,email,phone}

@@ -8,7 +8,7 @@ module.exports = {
 
         try{
             const newRating = await db.Review.create({rating,review,UserId:userId,PlaceId:+(placeId)});
-            if(!newRating) return next("Error ratimg location");
+            if(!newRating) return next("Error rating location");
 
             return res.json({
                 success:true,

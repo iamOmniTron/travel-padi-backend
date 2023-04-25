@@ -8,8 +8,12 @@ module.exports = (sequelize,DataTypes)=>{
             primaryKey:true,
             autoIncrement:true
         },
-        logitude:DataTypes.STRING,
-        latitude:DataTypes.STRING
+        longitude:DataTypes.STRING,
+        latitude:DataTypes.STRING,
+        address:DataTypes.STRING,
+        category:DataTypes.STRING,
+        state:DataTypes.STRING,
+        city:DataTypes.STRING,
     },{
         sequelize,freezeTableName:true,timestamps:true
     });

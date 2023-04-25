@@ -19,14 +19,15 @@ app.use(cors({origin:"*"}));
 app.use(express.json())
 app.use(express.urlencoded({extended:true}));
 
+// ROUTER MOUNTED ON APPLICATION SERVER
 app.use("/",router);
 
 
-// ROUTER MOUNTED ON APPLICATION SERVER
 
 // GLOBAL ERROR HANDLER TO HANDLE UNCAUGHT ERROR
 app.use((err,_,res,next)=>{
     if(err){
+        console.log(err);
         if(err instanceof Error){
             return res.json({
                 success:false,

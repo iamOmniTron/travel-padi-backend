@@ -6,7 +6,7 @@ module.exports = (sequelize,DataTypes)=>{
         id:{
             type:DataTypes.INTEGER,
             primaryKey:true,
-            autIncrement:true
+            autoIncrement:true
         }
     },{
         sequelize,freezeTableName:true,timestamps:true

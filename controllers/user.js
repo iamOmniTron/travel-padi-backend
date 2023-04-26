@@ -9,7 +9,7 @@ module.exports = {
     signup: async(req,res,next)=>{
         const {name,email,phone,password} = req.body;
         try{
-            const isExist = await db.User.findOne({email});
+            const isExist = await db.User.findOne({where:{email}});
             if(isExist) return next(err.message);
         }catch(err){
             return next('Error querying user details')
@@ -37,6 +37,7 @@ module.exports = {
 
             if(!isPassMatched) return next("Invalid email/password");
             const token = generateAccessToken({id:user.id});
+            console.log(token);
             return res.json({
                 success:true,
                 data:token

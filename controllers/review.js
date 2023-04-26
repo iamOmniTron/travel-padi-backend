@@ -4,10 +4,10 @@ module.exports = {
     rate:async(req,res,next)=>{
         const {userId} = req;
         const {placeId} = req.params;
-        const {rating,review} = req.body;
+        const {ratings,review} = req.body;
 
         try{
-            const newRating = await db.Review.create({rating,review,UserId:userId,PlaceId:+(placeId)});
+            const newRating = await db.Review.create({ratings,review,UserId:userId,PlaceId:+(placeId)});
             if(!newRating) return next("Error rating location");
 
             return res.json({

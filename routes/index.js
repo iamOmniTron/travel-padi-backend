@@ -1,5 +1,5 @@
 const {Router} = require("express");
-const { signup, login, profile, bookmarkPlace, getBookmarks, addLocation } = require("../controllers/user");
+const { signup, login, profile, bookmarkPlace, getBookmarks, addLocation,getPlaces } = require("../controllers/user");
 const {rate} = require("../controllers/review");
 const { requireAuth } = require("../middlewares/auth");
 
@@ -26,6 +26,7 @@ router.get("/api/bookmarks",requireAuth,getBookmarks);
 
 // PLACES
 router.post("/api/place/add",requireAuth,addLocation);
+router.post("/api/recommended-places",requireAuth,getPlaces);
 
 // RATE & REVIEW
 router.post("/api/rate/:placeId",requireAuth,rate);

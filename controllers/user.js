@@ -61,7 +61,7 @@ module.exports = {
     getBookmarks: async (req,res,next)=>{
         const {userId} = req;
         try{
-            const bookmarks = await db.Place.findAll({include:[{model:db.Bookmark}]})
+            const bookmarks = await db.Place.findAll({include:[{model:db.Bookmark,required:true,include:[{model:db.User,where:{UserId:userId},required:true}]}]})
             return res.json({
                 success:true,
                 data:bookmarks
@@ -99,5 +99,16 @@ module.exports = {
         }catch(err){
             return next(err);
         }
-    }
+    },
+    getPlaces:async (req,res,next)=>{
+        try{
+            const places = await db.Place.findAll()
+            return res.json({
+                success:true,
+                data:places
+            })
+        }catch(err){
+            return next(err);
+        }
+    },
 }

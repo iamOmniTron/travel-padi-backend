@@ -7,9 +7,10 @@ module.exports = {
         const {ratings,review} = req.body;
 
         try{
+            console.log("rating")
             const newRating = await db.Review.create({ratings,review,UserId:userId,PlaceId:+(placeId)});
             if(!newRating) return next("Error rating location");
-
+            console.log("done")
             return res.json({
                 success:true,
                 message:'Rating successful'

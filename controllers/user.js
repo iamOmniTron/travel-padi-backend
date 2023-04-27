@@ -62,7 +62,7 @@ module.exports = {
     getBookmarks: async (req,res,next)=>{
         const {userId} = req;
         try{
-            const bookmarks = await db.Place.findAll({include:[{model:db.Bookmark,include:[{model:db.User,where:{"Bookmark.UserId":userId},required:true}]}]})
+            const bookmarks = await db.Place.findAll({include:[{model:db.Bookmark,include:[{model:db.User,where:{id:userId},required:true}]},{model:db.Review,required:true}]})
             return res.json({
                 success:true,
                 data:bookmarks

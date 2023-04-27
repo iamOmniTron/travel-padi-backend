@@ -14,6 +14,11 @@ router.get("/",(_,res)=>{
     })
 })
 
+router.post("/",(req,res)=>{
+    console.log("body",req.body);
+    return;
+})
+
 // USER ROUTES
 router.post("/api/signup",signup);
 router.post("/api/login",login);

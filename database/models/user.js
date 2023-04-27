@@ -28,7 +28,7 @@ module.exports = (sequelize,DataTypes)=>{
         sequelize,freezeTableName:true,timestamps:true
     });
 
-    User.associates = (models)=>{
+    User.associate = (models)=>{
         User.hasMany(models.Bookmark);
         User.hasMany(models.Review);
     }

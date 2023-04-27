@@ -12,9 +12,9 @@ module.exports = (sequelize,DataTypes)=>{
         sequelize,freezeTableName:true,timestamps:true
     });
 
-    Bookmark.associates = (models)=>{
-        Bookmark.belongsToMany(models.Place);
-        Bookmark.belongsToMany(models.Users);
+    Bookmark.associate = (models)=>{
+        Bookmark.belongsTo(models.Place);
+        Bookmark.belongsTo(models.User);
     }
 
 

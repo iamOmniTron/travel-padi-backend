@@ -17,7 +17,7 @@ module.exports = (sequelize,DataTypes)=>{
         sequelize,freezeTableName:true,timestamps:true
     });
 
-    Review.associates = (models)=>{
+    Review.associate = (models)=>{
         Review.belongsTo(models.User);
         Review.belongsTo(models.Place);
     }

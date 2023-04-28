@@ -106,7 +106,6 @@ module.exports = {
             const places = await db.Place.findAll({
                 group:"placeId"
             })
-            console.log(places);
             return res.json({
                 success:true,
                 data:places

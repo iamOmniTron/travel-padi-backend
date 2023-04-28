@@ -2,12 +2,12 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
-const {DB_NAME,DB_PASS,DB_USER,DB_HOST} = require("../../defaults");
+const {DB_NAME,DB_USER,DB_HOST, DB_PASSWORD} = require("../../defaults");
 
 const basename = path.basename(__filename);
 const db = {};
 
-const sequelize = new Sequelize(DB_NAME,DB_USER,DB_PASS,{
+const sequelize = new Sequelize(DB_NAME,DB_USER,DB_PASSWORD,{
   host:DB_HOST,
   dialect:"mysql",
    pool: {

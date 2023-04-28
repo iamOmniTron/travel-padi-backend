@@ -103,7 +103,10 @@ module.exports = {
     },
     getPlaces:async (req,res,next)=>{
         try{
-            const places = await db.Place.findAll()
+            const places = await db.Place.findAll({
+                group:"placeId"
+            })
+            console.log(places);
             return res.json({
                 success:true,
                 data:places

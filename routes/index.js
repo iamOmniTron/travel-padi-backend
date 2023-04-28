@@ -31,7 +31,7 @@ router.get("/api/bookmarks",requireAuth,getBookmarks);
 
 // PLACES
 router.post("/api/place/add",requireAuth,addLocation);
-router.post("/api/recommended-places",requireAuth,getPlaces);
+router.get("/api/recommended-places",requireAuth,getPlaces);
 
 // RATE & REVIEW
 router.post("/api/rate/:placeId",requireAuth,rate);

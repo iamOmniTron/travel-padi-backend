@@ -12,7 +12,7 @@ module.exports = {
             const isExist = await db.User.findOne({where:{email}});
             if(isExist) return next(err.message);
         }catch(err){
-            return next('Error querying user details')
+            return next('User with email exist')
         }
         const hashedPassword = await hashPassword(password);
         try{

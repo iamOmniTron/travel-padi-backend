@@ -6,6 +6,6 @@ const {TOKEN_SECRET} = require("../defaults");
 module.exports = {
     hashPassword: async (password)=> await bcrypt.hash(password,10),
     isPasswordMatch: async (password,hashed)=> await bcrypt.compare(password,hashed),
-    generateAccessToken: (payload)=> jwt.sign({...payload},TOKEN_SECRET,{expiresIn:"2d"}),
+    generateAccessToken: (payload)=> jwt.sign({...payload},TOKEN_SECRET,{expiresIn:259200}),
     decodeAcessToken: (token)=>jwt.verify(token,TOKEN_SECRET),
 }

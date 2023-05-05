@@ -8,6 +8,7 @@ module.exports = (sequelize,DataTypes)=>{
             primaryKey:true,
             autoIncrement:true
         },
+        name:DataTypes.STRING,
         address:DataTypes.STRING,
         category:DataTypes.STRING,
         imageURL:DataTypes.STRING,

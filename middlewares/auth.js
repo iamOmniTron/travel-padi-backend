@@ -8,7 +8,7 @@ module.exports = {
             const header = req.headers["authorization"];
             if(!header) return next("Unauthenticated");
             const token = header.split(" ")[1];
-            console.log("token",token)
+            // console.log("token",token)
             if(!token || typeof token !== "string"){
                 return next("Unauthenticated");   
             }

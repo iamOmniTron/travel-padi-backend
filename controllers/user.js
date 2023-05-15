@@ -62,10 +62,11 @@ module.exports = {
     getBookmarks: async (req,res,next)=>{
         const {userId} = req;
         try{
-            const bookmarks = await db.Place.findAll({include:[{model:db.Bookmark,include:[{model:db.User,where:{id:userId},required:true}]},{model:db.Review,required:true}]})
+            const bookmarks = await db.Bookmark.findAll({include:[{model:db.Place,required:true}],where:{UserId:userId}});
+            const bookmarkedPlaces = bookmarks.map(b=>b.Place);
             return res.json({
                 success:true,
-                data:bookmarks
+                data:bookmarkedPlaces
             })
         }catch(err){
             return next(err);
@@ -78,6 +79,8 @@ module.exports = {
             if(!boookmarked){
                 return next("Error bookmarking place")
             }
+
+            console.log("Place bookmarked successfully")
             return res.json({
                 success:true,
                 message:"Location bookmarked successfully"
